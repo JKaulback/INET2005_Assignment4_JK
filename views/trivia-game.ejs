@@ -8,15 +8,19 @@
     <body class="bg-dark text-light d-flex justify-content-center">
         <div class="d-flex flex-column justify-content-center align-items-center">
             
-            <div id="player-score-container" style="background-color:#3f474f; height: 50px; width: 100px" class="rounded mb-5 d-flex align-items-center justify-content-center">
-                <p class="m-0">SCORE: <%= player_score %></p>
+
+            <div class="d-flex">
+                <a href="/" style="height: min-content" class="btn btn-danger btn-lg me-5">EXIT</a>
+                <div id="player-score-container" style="background-color:#3f474f; height: 50px; width: 100px" class="rounded mb-5 d-flex align-items-center justify-content-center">
+                    <p class="m-0">SCORE: <%= player_score %></p>
+                </div>
             </div>
             
             <div id="trivia-question-container" style="background-color: #3f474f" class="rounded p-4 mb-5 d-flex justify-content-center">
                 <p class="m-0"><%= trivia_question %></p>
             </div>
 
-            <div id="trivia-answers-container" style="width: 100vw" class="container-fluid">
+            <div id="trivia-answers-container" style="width: 60vw" class="container-fluid font-monospace">
                 <div class="row align-items-center justify-content-center">
                     <div class="col-sm d-flex justify-content-center">
                         <%- include('trivia-answer', {trivia_answer: trivia_answers[0], is_revealed: is_revealed}) %>
@@ -35,8 +39,8 @@
                 </div>
             </div>
 
-            <div id="next-button">
-                <a href="/trivia-game" class="btn btn-secondary btn-lg" tabindex="-1">NEXT</a>
+            <div id="next-button" style="visibility: <%= is_revealed ? 'visible' : 'hidden' %>">
+                <a href="/trivia-game" class="btn btn-warning btn-lg" tabindex="-1">NEXT</a>
             </div>
         </div>
     </body>

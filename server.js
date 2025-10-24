@@ -53,7 +53,7 @@ app.get('/trivia-game', (req, res) => {
     bundle.trivia_question = "Why did the chicken cross the road?";
     bundle.is_revealed = false;
     bundle.trivia_answers = [
-        { content: "To get to the other side", is_correct: true },
+        { content: "This will be the maximum number of characters acceptable for an answer", is_correct: true },
         { content: "Just because", is_correct: false },
         { content: "I don't know", is_correct: false },
         { content: "Oh, I didn't know!", is_correct: false }

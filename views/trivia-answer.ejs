@@ -1,13 +1,13 @@
 <% if (!is_revealed) { %>
-    <a href="/submit-answer" class="btn btn-secondary btn-lg" tabindex="-1">
-        <%= trivia_answer.content %>
+    <a href="/submit-answer" style="width: 300px; height: 90px;" class="m-2 btn btn-secondary d-flex align-items-center justify-content-center" tabindex="-1">
+        <p class="m-0"><%= trivia_answer.content %></p>
     </a>
 <% } else { %>
     <% if (trivia_answer.is_correct) { %>
-        <a class="btn btn-success btn-lg disabled" tabindex="-1">
+        <a style="width: 300px; height: 90px;" class="m-2 btn btn-success d-flex align-items-center justify-content-center disabled" tabindex="-1">
     <% } else { %>
-        <a class="btn btn-danger btn-lg disabled" tabindex="-1">
+        <a style="width: 300px; height: 90px;" class="m-2 btn btn-danger d-flex align-items-center justify-content-center disabled" tabindex="-1">
     <% } %>
-            <%= trivia_answer.content %>
+            <p class="m-0"><%= trivia_answer.content %></p>
         </a>
 <% } %>
