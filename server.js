@@ -27,10 +27,46 @@ app.use(bodyParser.json()); // Parse incoming JSON requests
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded data
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files from 'public' directory, if any
 
+// The data structure used throughout the program w/ default values
+let bundle = {
+    player_score: 0,
+    trivia_question: "Why did the chicken cross the road?",
+    is_revealed: false,
+    trivia_answers: [
+        { content: "To get to the other side", is_correct: true },
+        { content: "Just because", is_correct: false },
+        { content: "I don't know", is_correct: false },
+        { content: "Oh, I didn't know!", is_correct: false }
+    ]
+};
+
 // Route for the homepage
 app.get('/', (req, res) => {
     let msg = "Welcome"; // Message to pass to the EJS template
     res.render('index', { message: msg }); // Render 'index.ejs' with the message
+    console.log("Landing page");
+});
+
+app.get('/trivia-game', (req, res) => {
+    // ----- START TEST VALUES -----
+    bundle.player_score = 0;
+    bundle.trivia_question = "Why did the chicken cross the road?";
+    bundle.is_revealed = false;
+    bundle.trivia_answers = [
+        { content: "To get to the other side", is_correct: true },
+        { content: "Just because", is_correct: false },
+        { content: "I don't know", is_correct: false },
+        { content: "Oh, I didn't know!", is_correct: false }
+    ];
+    // ----- END TEST VALUES -----
+    console.log("bundle: ",bundle);
+    res.render('trivia-game', bundle);
+});
+
+app.get('/submit-answer', (req, res) => {
+    bundle.is_revealed = true;
+
+    res.render('trivia-game', bundle);
 });
 
 // Start the server and listen on the specified port

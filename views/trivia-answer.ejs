@@ -1,0 +1,13 @@
+<% if (!is_revealed) { %>
+    <a href="/submit-answer" class="btn btn-secondary btn-lg" tabindex="-1">
+        <%= trivia_answer.content %>
+    </a>
+<% } else { %>
+    <% if (trivia_answer.is_correct) { %>
+        <a class="btn btn-success btn-lg disabled" tabindex="-1">
+    <% } else { %>
+        <a class="btn btn-danger btn-lg disabled" tabindex="-1">
+    <% } %>
+            <%= trivia_answer.content %>
+        </a>
+<% } %>

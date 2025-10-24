@@ -2,9 +2,16 @@
     <head>
         <!-- Page title shown in browser tab -->
         <title>Trivia Bot</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     </head>
-    <body>
-        <!-- Display the message passed from the server using EJS syntax -->
-        <h3><%= message %></h3>
+    <body class="bg-dark text-light d-flex justify-content-center">
+        <div class="d-flex flex-column justify-content-center">
+            <div style="background-color: #3f474f" class="rounded p-3 mb-5">
+                <h2>Welcome to Trivia Night!</h2>
+                <h3>Click START to get started!</h3>
+            </div>
+            <a href="/trivia-game" class="btn btn-secondary btn-lg" tabindex="-1">START</a>
+        </div>
     </body>
 </html>
