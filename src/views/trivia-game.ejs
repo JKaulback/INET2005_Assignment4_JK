@@ -16,8 +16,8 @@
                 </div>
             </div>
             
-            <div id="trivia-question-container" style="background-color: #3f474f" class="rounded p-4 mb-5 d-flex justify-content-center">
-                <p class="m-0"><%= trivia_question %></p>
+            <div id="trivia-question-container" style="background-color: #3f474f; width: 500px; height: 90px" class="rounded p-1 mb-5 d-flex justify-content-center align-items-center">
+                <p class="m-0 text-center"><%= trivia_question %></p>
             </div>
 
             <div id="trivia-answers-container" style="width: 60vw" class="container-fluid font-monospace">
@@ -39,7 +39,14 @@
                 </div>
             </div>
 
-            <div id="next-button" style="visibility: <%= is_revealed ? 'visible' : 'hidden' %>">
+            <div id="after-answer" style="width: 150px; height: 100px; visibility: <%= is_revealed ? 'visible' : 'hidden' %>" class="d-flex flex-column justify-content-center align-items-center">
+                <div id="answer-feedback" style="width: 100px; height: 40px;" class="d-flex justify-content-center align-items-center">
+                    <% if (answer_correct) { %>
+                        <p class="btn btn-success disabled">CORRECT!</p>
+                    <% } else { %>
+                        <p class="btn btn-danger disabled">INCORRECT...</p>
+                    <% } %>
+                </div>
                 <a href="/trivia-game" class="btn btn-warning btn-lg" tabindex="-1">NEXT</a>
             </div>
         </div>
